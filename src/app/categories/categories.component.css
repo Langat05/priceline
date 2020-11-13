@@ -1,0 +1,27 @@
+body{
+    background-color: rgb(187, 185, 85);
+}
+.btn {
+    display: none;
+  }
+  
+  .wrapper:hover .btn {
+    display: inline-block;
+  }
+
+  img:hover {
+    -ms-transform: scale(1); 
+    -webkit-transform: scale(1); 
+    transform: scale(1.5); 
+  }  
+
+img{
+    height: 200px;
+    width: auto;
+    vertical-align: bottom;
+    padding:20px 30px;
+}  
+.cat{
+    display:flex;
+    flex-wrap: wrap;}    
+
