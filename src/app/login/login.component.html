@@ -1,4 +1,6 @@
-<form class="container">
+<form class="jumbotron">
+    <h1><b>Welcome to Priceline</b></h1><br>
+
     <div class="container">
     <div class="input">
         <label>Username</label>
@@ -12,8 +14,14 @@
         <button type="submit" class="btn-btn-primary" (click)="logIn()">Log In</button>
     </div>
     <br>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Dont have an account? <a  (click)="register()"class="ml-2 register_link" routerLink="/register" >Register</a>
+        </small>
+    </div>
     <br>
     <br>
     <br>
 </div>
 </form>
+
