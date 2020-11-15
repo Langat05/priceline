@@ -1,1 +1,17 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="/home" routerLinkActive='active'><b>PRICELINE</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" routerLink="home" routerLinkActive='active'>Home<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" routerLink="/profile" routerLinkActive='active'>profile</a>
+        <a class="nav-item nav-link" routerLink="/register" routerLinkActive='active'>Register</a>
+        <a class="nav-item nav-link" routerLink="/payment" routerLinkActive='active'>Payment</a>
+        <a class="nav-item nav-link" routerLink="/vendor" routerLinkActive='active'>Vendor</a>
+        <a class="nav-item nav-link" routerLink="/login" routerLinkActive='active'>Login</a>
+        <a class="nav-item nav-link" routerLink="/logout" routerLinkActive='active'>Logout</a>
+      </div>
+    </div>
+</nav>
