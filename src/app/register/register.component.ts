@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { userInfo, UserInfo } from 'os';
 import { EventEmitter } from 'protractor';
-import {User} from './../user';
+import { User } from './../user';
 
 @Component({
   selector: 'app-register',
