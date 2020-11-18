@@ -1,29 +1,35 @@
-<h3>Register if you have no account in this site</h3>
+<br>
 <form (ngSubmit)='createUser()'>
     <div class="container">
-    <div class="form-group">
-        <div class="input">
-            <label>Email </label>
-            <input type="email" name="Email"ng-model="Email" placeholder="Kindly input your official email address">
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input">
-            <label> Names </label>
-            <input type="text" name="name"ng-model="name" placeholder="Kindly input your official names" >
-        </div>
+        <h3>Register here</h3><br>
+        <div class="cards">
+            <div class="form-group">
+                <div class="input">
+                    <label>Username </label>
+                    <input type="text" name="Text" ng-model="Username" placeholder="Username">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input">
+                    <label>Email </label>
+                    <input type="email" name="Email" ng-model="Email" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input">
+                    <label> password </label>
+                    <input type="password" name="password" ng-model="Password" placeholder="Password">
+                </div>
 
-    </div>
-    <div class="form-group">
-        <div class="input">
-            <label>Telephone number </label>
-            <input type="tel" name="number"ng-model="number" placeholder="Kindly input your number">
-        </div>
+            </div>
+            <div class="form-group">
+                <div class="input">
+                    <label>Confirm Password </label>
+                    <input type="password" name="password" ng-model="confirmPassword" placeholder="Confirm Password">
+                </div>
 
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <br>
-    <br><br><br><br><br>
-    <br><br><br><br><br><br><br>
-</div>
 </form>
