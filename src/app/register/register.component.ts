@@ -1,7 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { userInfo, UserInfo } from 'os';
-import { EventEmitter } from 'protractor';
-import { User } from './../user';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -9,15 +7,29 @@ import { User } from './../user';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  newUser: User = new User(0,"","","");
-  
 
-  createUser(){
-    this.newUser = new User(0,'','','')
-  }
-  constructor() { }
+  form: any = {};
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(): void {
+    this.userService.register(this.form).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    );
   }
 
 }

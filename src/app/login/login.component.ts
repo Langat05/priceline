@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../_services/user.service';
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -7,21 +9,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  username: string;
-  password: string;
-  constructor() { }
+  form: any = {};
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  user: string[] = [];
 
-  ngOnInit() {
+  constructor(private userService: UserService, private tokenStorage: TokenStorageService) { }
+
+  ngOnInit(): void {
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.user = this.tokenStorage.getUser();
+      console.log(this.user);
+    }
   }
 
-  logIn() {
-    if (this.username == "Admin" && this.password == "admin123") {
-      alert("Welcome");
-    }
-    else {
-      alert("Please Enter Valid Credentials to login")
-    }
+  onSubmit(): void {
+    this.userService.login(this.form).subscribe(
+      data => {
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUser(data);
+
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.user = this.tokenStorage.getUser();
+        console.log(this.user);
+        this.reloadPage();
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isLoginFailed = true;
+      }
+    );
+  }
+
+  reloadPage(): void {
+    window.location.reload();
   }
 
 }
-

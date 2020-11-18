@@ -1,4 +1,3 @@
-import { LogoutComponent } from './logout/logout.component';
 import { LoginComponent } from './login/login.component';
 import { VendorComponent } from './vendor/vendor.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -16,7 +15,6 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent},
   { path: 'vendor', component: VendorComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'logout', component: LogoutComponent},
   { path: 'categories', component: CategoriesComponent},
 
 ];
