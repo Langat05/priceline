@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../_services/user.service';
+import { TokenStorageService } from '../_services/token-storage.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,21 +11,61 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  username: string;
-  password: string;
-  constructor() { }
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
+  returnUrl: string;
+
+  constructor(
+      private formBuilder: FormBuilder,
+      private route: ActivatedRoute,
+      private router: Router,
+      private authenticationService: UserService,
+      // private alertService: AlertService
+  ) {
+      // redirect to home if already logged in
+      // if (this.authenticationService.currentUserValue) {
+      //     this.router.navigate(['/']);
+      // }
+  }
 
   ngOnInit() {
+      this.loginForm = this.formBuilder.group({
+          username: ['', Validators.required],
+          password: ['', Validators.required]
+      });
+
+      // get return url from route parameters or default to '/'
+      // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  logIn() {
-    if (this.username == "Admin" && this.password == "admin123") {
-      alert("Welcome");
-    }
-    else {
-      alert("Please Enter Valid Credentials to login")
-    }
-  }
+  // convenience getter for easy access to form fields
+  get f() { return this.loginForm.controls; }
 
+  onSubmit() {
+      this.submitted = true;
+
+      // reset alerts on submit
+      // this.alertService.clear();
+
+      // stop here if form is invalid
+      if (this.loginForm.invalid) {
+          return;
+      }
+
+      this.loading = true;
+      this.authenticationService.login(this.f.username.value, this.f.password.value)
+          .pipe()
+          .subscribe(
+              data => {
+                  // this.router.navigate([this.returnUrl]);
+                  console.log(data)
+              },
+              error => {
+                  // this.alertService.error(error);
+                  // this.loading = false;
+                  console.log(error)
+              }
+              );
+  }
 }
-
