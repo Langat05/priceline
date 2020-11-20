@@ -20,10 +20,10 @@ export class RegisterComponent implements OnInit {
     private authenticationService: UserService,
     // private userService: UserService,
   ) {
-  //   if (this.authenticationService.isLoggedIn()) {
-  //     this.router.navigate(['/']);
-  // }
-   }
+    //   if (this.authenticationService.isLoggedIn()) {
+    //     this.router.navigate(['/']);
+    // }
+  }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
       email: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
       password2: ['', [Validators.required, Validators.minLength(6)]]
-  });
+    });
   }
   get f() { return this.registerForm.controls; }
   onSubmit() {
@@ -42,21 +42,21 @@ export class RegisterComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
-        return;
+      return;
     }
 
     // this.loading = true;
     this.authenticationService.register(this.registerForm.value)
-        .pipe(first())
-        .subscribe(
-            data => {
-                this.alertService.success('Registration successful', true);
-                console.log(data)
-                this.router.navigate(['/login/']);
-            },
-            error => {
-                // this.alertService.error(error);
-                // this.loading = false;
-            });
-}
+      .pipe(first())
+      .subscribe(
+        data => {
+          // this.alertService.success('Registration successful', true);
+          console.log(data)
+          this.router.navigate(['/login/']);
+        },
+        error => {
+          // this.alertService.error(error);
+          // this.loading = false;
+        });
+  }
 }
