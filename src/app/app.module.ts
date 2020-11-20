@@ -9,7 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './profile/profile.component'
 import { PaymentComponent } from './payment/payment.component';
 import { VendorComponent } from './vendor/vendor.component';
 import { CategoriesComponent } from './categories/categories.component';
