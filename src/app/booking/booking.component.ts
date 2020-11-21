@@ -23,6 +23,7 @@ export class BookingComponent implements OnInit {
       dropoffdate: ['']
     })
   }
-  
+  onSubmit(){
+     alert('Thankyou ');
 }
 
