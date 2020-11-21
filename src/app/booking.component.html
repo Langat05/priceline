@@ -1,7 +1,7 @@
 <div class="col-md-12"><br>
     <div class="container" style="width:max-content" >
         <h3>BOOKINGS</h3>
-        <form  [formGroup]="bookingForm" (ngSubmit)="createbooking()" >
+        <form  [formGroup]="bookingForm" (ngSubmit)="onSubmit()" >
             <label for="name">Your names</label>
             <input type="text" class="form-control" placeholder="Kindly enter your names" name="name"><br>
             <label for="number">Your phonenumber</label>
