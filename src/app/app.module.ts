@@ -13,7 +13,9 @@ import { PaymentComponent } from './payment/payment.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { VendorComponent } from './vendor/vendor.component';
-
+import {FormsModule,ReactiveFormsModule,Validators,FormControl,FormGroup,FormBuilder} from '@angular/forms';
+import {HttpClientModule,HttpClient} from '@angular/common/http';
+import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,12 @@ import { VendorComponent } from './vendor/vendor.component';
     ProfileComponent,
     RegisterComponent,
     VendorComponent,
+    BookingComponent,
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule,ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
