@@ -1,9 +1,10 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable,throwError } from 'rxjs';
 import { User } from '../Models/user';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
+
 
 const API_URL = 'https://pricelineapi.herokuapp.com/api/';
 
@@ -40,15 +41,29 @@ export class UserService {
 
   login(username, password) {
     return this.http.post<any>(`https://pricelineapi.herokuapp.com/api/login/`, { username, password })
-        .pipe(map(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('currentUser', JSON.stringify(user.id));
-            // this.currentUserSubject.next(user);
-            return user;
-        }));
-}
+      .pipe(map(user => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUser', JSON.stringify(user.id));
+        // this.currentUserSubject.next(user);
+        return user;
+      }));
+  }
+
+  logout() {
+    localStorage.removeItem('currentUser');
+  }
 
   register(user: User) {
     return this.http.post(`https://pricelineapi.herokuapp.com/api/register/`, user);
+  }
+
+  // vendor(username, bookings,payments,profilepicture: User) {
+  //   return this.http.post(`https://pricelineapi.herokuapp.com/api/vendor/`, { username, bookings, payments, profilepicture})
+  //   .pipe(map(username, bookings, payments, _profilepicture =>{
+  //     localStorage.setItem('currentUser', JSON.stringify(User.id));
+  //     return User;
+
+  //   }));
+  // }
 }
-}
+
