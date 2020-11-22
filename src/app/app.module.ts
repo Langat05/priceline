@@ -11,9 +11,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component'
 import { PaymentComponent } from './payment/payment.component';
-import { VendorComponent } from './vendor/vendor.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { FooterComponent } from './footer/footer.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -24,16 +24,16 @@ import { FooterComponent } from './footer/footer.component';
     RegisterComponent,
     ProfileComponent,
     PaymentComponent,
-    VendorComponent,
     CategoriesComponent,
-    FooterComponent
+    FooterComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

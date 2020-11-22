@@ -1,0 +1,21 @@
+<div style="background-color:rgb(19, 103, 160); color:whitesmoke">
+    <h1 style="text-align:center">Group9 Administration</h1>
+    <p style="text-align:center">WELCOME, GROUP9. <a routerLink="/" style="color:whitesmoke">view site</a></p>
+</div>
+
+<body><br>
+    <div class="container-fluid emp-profile">
+        <h2>Site Administration</h2>
+        <div class="row" *ngFor="let user of users;">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    Users
+                </div>
+                <ul>
+                    <li> {{user.id}}</li>
+                </ul>
+            </div>
+
+        </div>
+    </div><br>
+</body>

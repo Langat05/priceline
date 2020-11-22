@@ -1,5 +1,5 @@
 import { LoginComponent } from './login/login.component';
-import { VendorComponent } from './vendor/vendor.component';
+import { AdminComponent } from './admin/admin.component' ;
 import { PaymentComponent } from './payment/payment.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { RegisterComponent } from './register/register.component';
@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'payment', component: PaymentComponent},
-  { path: 'vendor', component: VendorComponent},
+  { path: 'admin', component: AdminComponent},
   { path: 'login', component: LoginComponent},
   { path: 'categories', component: CategoriesComponent},
 
