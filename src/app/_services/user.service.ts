@@ -56,6 +56,18 @@ export class UserService {
   register(user: User) {
     return this.http.post(`https://pricelineapi.herokuapp.com/api/register/`, user);
   }
+  smallcars(){
+    return this.http.get(`https://pricelineapi.herokuapp.com/api/smallcars`);
+  }
+  midcars(){
+    return this.http.get(`https://pricelineapi.herokuapp.com/api/midcars`);
+  }
+  largecars(){
+    return this.http.get(`https://pricelineapi.herokuapp.com/api/largecars`);
+  }
+  ambulance(){
+    return this.http.get(`https://pricelineapi.herokuapp.com/api/ambulance`);
+  }
 
   // vendor(username, bookings,payments,profilepicture: User) {
   //   return this.http.post(`https://pricelineapi.herokuapp.com/api/vendor/`, { username, bookings, payments, profilepicture})

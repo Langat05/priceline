@@ -14,6 +14,10 @@ import { PaymentComponent } from './payment/payment.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { FooterComponent } from './footer/footer.component';
 import { AdminComponent } from './admin/admin.component';
+import { SmallcarsComponent } from './smallcars/smallcars.component';
+import { LargecarsComponent } from './largecars/largecars.component';
+import { MidcarsComponent } from './midcars/midcars.component';
+import { AmbulanceComponent } from './ambulance/ambulance.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { AdminComponent } from './admin/admin.component';
     CategoriesComponent,
     FooterComponent,
     AdminComponent,
+    SmallcarsComponent,
+    LargecarsComponent,
+    MidcarsComponent,
+    AmbulanceComponent,
   ],
   imports: [
     BrowserModule,
