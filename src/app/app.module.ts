@@ -26,7 +26,7 @@ import { AdminComponent } from './admin/admin.component';
     PaymentComponent,
     CategoriesComponent,
     FooterComponent,
-    AdminComponent
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

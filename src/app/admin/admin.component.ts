@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-admin',
@@ -8,20 +8,35 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  user:any; 
-  users=[]; 
-  constructor(private http : HttpClient,
-    private router: Router,
-    ){
+  form: FormGroup;
 
-   } 
-  //  http://127.0.0.1:8000/api/rest-auth/login/
-   ngOnInit(): void { 
-    this.http.get('https://pricelineapi.herokuapp.com/api/') 
-    .subscribe(Response => {   
-      this.user=Response; 
-      this.users=this.user; 
-      console.log(this.users)
-    }); 
+  constructor(private http: HttpClient,public fb: FormBuilder) {
+    this.form = this.fb.group({
+      name: [''],
+      avatar: [null]
+    })
   }
+
+  ngOnInit() { }
+
+  uploadFile(event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({
+      avatar: file
+    });
+    this.form.get('avatar').updateValueAndValidity()
+  }
+
+  submitForm() {
+    var formData: any = new FormData();
+    formData.append("name", this.form.get('name').value);
+    formData.append("avatar", this.form.get('avatar').value);
+  
+    this.http.post('https://pricelineapi.herokuapp.com/admin/', formData).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    )
+  }
+
 }
+
