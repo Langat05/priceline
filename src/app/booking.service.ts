@@ -19,7 +19,7 @@ export class BookingService {
   
 
   booking(car): Observable<any> {
-    return this.http.post(API_URL+ 'booking/', {
+    return this.http.post(API_URL+'id/'+ 'bookcar/', {
      
       email: car.email,
       address:car.address,
