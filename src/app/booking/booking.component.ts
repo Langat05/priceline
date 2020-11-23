@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl ,FormBuilder} from '@angular/forms'
+import{BookingService} from'../booking.service'
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -7,8 +8,13 @@ import { FormGroup, FormControl ,FormBuilder} from '@angular/forms'
 })
 export class BookingComponent implements OnInit {
   bookingForm: FormGroup;
+  form:any = {};
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
   
-  constructor(
+  
+  constructor(private bookingservice : BookingService,
     private formBuilder:FormBuilder
   ) { }
 
@@ -19,12 +25,22 @@ export class BookingComponent implements OnInit {
       number: [''],
       car: [''],
       address: [''],
-      pickupdate: [''],
-      dropoffdate: ['']
+      date: [''],
+    
     })
   }
-  onSubmit() {
-    alert('Thankyou ');
+  onSubmit(): void {
+    this.bookingservice.booking(this.form).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    );
   }
-}
 
+}
