@@ -18,6 +18,7 @@ import { SmallcarsComponent } from './smallcars/smallcars.component';
 import { LargecarsComponent } from './largecars/largecars.component';
 import { MidcarsComponent } from './midcars/midcars.component';
 import { AmbulanceComponent } from './ambulance/ambulance.component';
+import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AmbulanceComponent } from './ambulance/ambulance.component';
     LargecarsComponent,
     MidcarsComponent,
     AmbulanceComponent,
+    BookingComponent,
   ],
   imports: [
     BrowserModule,

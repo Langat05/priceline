@@ -11,6 +11,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LargecarsComponent } from './largecars/largecars.component';
 import { AmbulanceComponent } from './ambulance/ambulance.component';
+import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'midcars', component:MidcarsComponent},
   { path: 'largecars', component:LargecarsComponent},
   { path: 'ambulance', component:AmbulanceComponent},
+  { path: 'book', component:BookingComponent},
 
 ];
 
