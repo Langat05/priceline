@@ -20,16 +20,16 @@ export class BookingComponent implements OnInit {
 
   ngOnInit(): void {
     this.bookingForm = this.formBuilder.group({
-      name: [''],
       email: [''],
-      number: [''],
-      car: [''],
+      cell_no: [''],
+      
       address: [''],
-      date: [''],
+      startdate: [''],
+      returndate:[''],
     
     })
   }
-  onSubmit(): void {
+  onSubmit(){
     this.bookingservice.booking(this.form).subscribe(
       data => {
         console.log(data);
@@ -41,6 +41,7 @@ export class BookingComponent implements OnInit {
         this.isSignUpFailed = true;
       }
     );
+    alert("Thankyou for your request we will get back to you after reviewing your application!");
   }
 
 }
