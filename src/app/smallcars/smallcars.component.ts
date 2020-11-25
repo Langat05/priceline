@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
+import {Observable} from 'rxjs';
 @Component({
   selector: 'app-smallcars',
   templateUrl: './smallcars.component.html',
@@ -8,8 +9,9 @@ import { UserService } from '../_services/user.service';
 export class SmallcarsComponent implements OnInit {
 smallcars:any;
   constructor(private userService: UserService) { }
-
+  LoginStatus$ : Observable<boolean>;
   ngOnInit(){
+    this.LoginStatus$ = this.userService.isLoggedIn;
     this.retrieveSmallCars();
   }
   retrieveSmallCars(){

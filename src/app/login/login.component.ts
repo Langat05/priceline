@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
-import { TokenStorageService } from '../_services/token-storage.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -15,7 +14,9 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
-
+  errorMessage: string;
+  invalidLogin: boolean;
+  
   constructor(
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
@@ -55,11 +56,15 @@ export class LoginComponent implements OnInit {
 
       this.loading = true;
       this.authenticationService.login(this.f.username.value, this.f.password.value)
-          .pipe()
           .subscribe(
               data => {
+
                   // this.router.navigate([this.returnUrl]);
-                  console.log(data)
+                //   console.log(token);
+                  console.log("User Logged in successfully");
+                  this.invalidLogin = false;
+                  localStorage.setItem('jwt',data.access)
+                
                   this.router.navigate(['/categories/']);
 
               },

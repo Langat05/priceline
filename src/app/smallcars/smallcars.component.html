@@ -16,7 +16,8 @@
                   <p class="card-text">Fuel : {{car.fuel}}</p>
                   <p class="card-text">Transmission: {{car.transmission}}</p>
                   <p class="card-text">Rent Per Day: Ksh.{{car.daily_rent}}</p>
-                  <a href="" routerLink="/book"  class="btn btn-primary">Book Now</a>
+                  <a href="" *ngIf="(LoginStatus$ | async) as LoginStatus" routerLink="/view/{{car.id}}"  class="btn btn-primary">See More Details</a>
+                  <a href="" *ngIf="!(LoginStatus$ | async) as LoginStatus" routerLink="/login"  class="btn btn-primary">Login to Book</a>
                 </div>
               </div>
     </div>
