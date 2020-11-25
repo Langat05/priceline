@@ -53,6 +53,10 @@ export class UserService {
     localStorage.removeItem('currentUser');
   }
 
+  profile() {
+    return this.http.get(`https://pricelineapi.herokuapp.com/api/profile`);
+  }
+
   register(user: User) {
     return this.http.post(`https://pricelineapi.herokuapp.com/api/register/`, user);
   }
