@@ -91,6 +91,9 @@ bookCar(car_id: number,cell_no,address,startdate,returndate){
 
 }
 
+  profile() {
+    return this.http.get(`https://pricelineapi.herokuapp.com/api/profile`);
+  }
   smallcars(){
     return this.http.get(`https://pricelineapi.herokuapp.com/api/smallcars`);
   }
