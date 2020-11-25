@@ -22,10 +22,9 @@ username:string;
   private UserName = new BehaviorSubject <string>(localStorage.getItem('username'));
   private UserRole = new BehaviorSubject <string>(localStorage.getItem('userRole'));
 
-     register(user: User) {
-      return this.http.post(`https://pricelineapi.herokuapp.com/api/register/`, user);
-    }
-  
+  register(user: User) {
+    return this.http.post(`https://pricelineapi.herokuapp.com/api/register/`, user);
+  }
   login(username, password) {
     
     return this.http.post<any>(`https://pricelineapi.herokuapp.com/api/login/`, { username, password })
@@ -94,6 +93,8 @@ bookCar(car_id: number,cell_no,address,startdate,returndate){
   profile() {
     return this.http.get(`https://pricelineapi.herokuapp.com/api/profile`);
   }
+
+  
   smallcars(){
     return this.http.get(`https://pricelineapi.herokuapp.com/api/smallcars`);
   }
