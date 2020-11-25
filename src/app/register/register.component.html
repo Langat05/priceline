@@ -1,7 +1,6 @@
-<div class="container-fluid" style="background-color:rgb(170, 159, 159);
-">
+<div class="container-fluid di"><br><br><br><br>
     <h2 style="text-align:center">Register</h2>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" style="width:15rem; margin-left:45%">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" style="width:15rem; margin-left:45%; padding-bottom: 7.15%;">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" formControlName="username" class="form-control"
@@ -42,10 +41,10 @@
             </button>
         </div>
         <div>
-            <small class="text-muted">
-                <b>Already have an account? </b> <a routerLink="/login">Sign In</a>
+            <small >
+                <b>Already have an account? </b> <a routerLink="/login" style="color: red;">Sign In</a>
             </small>
         </div>
     </form>
-    <br>
+    
 </div>
