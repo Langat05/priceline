@@ -126,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "priceline"
+  "defaultProject": "priceline",
+  "cli": {
+    "analytics": "275831a4-08a3-4673-b09b-b11dc0e6e7c5"
+  }
 }
