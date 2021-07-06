@@ -1,21 +1,32 @@
-import { LogoutComponent } from './logout/logout.component';
+import { MidcarsComponent } from './midcars/midcars.component';
+import { SmallcarsComponent } from './smallcars/smallcars.component';
 import { LoginComponent } from './login/login.component';
-import { VendorComponent } from './vendor/vendor.component';
 import { PaymentComponent } from './payment/payment.component';
+import { CategoriesComponent } from './categories/categories.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LargecarsComponent } from './largecars/largecars.component';
+import { AmbulanceComponent } from './ambulance/ambulance.component';
+import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent},
+  { path: '', component: HomeComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'payment', component: PaymentComponent},
-  { path: 'vendor', component: VendorComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'logout', component: LogoutComponent},
+  { path: 'categories', component: CategoriesComponent},
+  { path: 'admin', component:AdminComponent},
+  { path: 'smallcars', component:SmallcarsComponent},
+  { path: 'midcars', component:MidcarsComponent},
+  { path: 'largecars', component:LargecarsComponent},
+  { path: 'ambulance', component:AmbulanceComponent},
+  { path: 'book', component:BookingComponent},
+
 ];
 
 @NgModule({

@@ -1,19 +1,40 @@
-<form class="container">
-    <div class="container">
-    <div class="input">
-        <label>Username</label>
-        <input type="text" name="username"ng-model="username" >
+<div class="container-fluid di" style="height:42.25rem"><br><br><br><br>
+    <h2 style="text-align:center">Login</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="width:15rem; margin-left:45%">
+  <div class="form-group">
+    <label for="username" style="font-size:1.5rem">Username</label>
+    <input
+      type="text"
+      formControlName="username"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+    />
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors.required" style="font-size:1.5rem">Username is required</div>
     </div>
-    <div class="input">
-        <label>PASSWORD</label>
-        <input type="password" name="password" ng-model="password" >
+  </div>
+  <div class="form-group">
+    <label for="password" style="font-size:1.5rem">Password</label>
+    <input
+      type="password"
+      formControlName="password"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+    />
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required" style="font-size:1.5rem">Password is required</div>
     </div>
-    <div class="input">
-        <button type="submit" class="btn-btn-primary" (click)="logIn()">Log In</button>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" style="font-size:1.5rem">
+      Login
+    </button>
+  </div>
+  <div>
+    <small style="font-size: 1.5rem;">
+       <b> Don't have an account? </b> <a routerLink="/register" style="color: white;font-size:1rem; height:1.3rem; background-color:black"><b>Register</b></a>
+    </small>
 </div>
 </form>
+<br>
+</div>
